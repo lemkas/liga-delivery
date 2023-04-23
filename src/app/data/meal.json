@@ -1,0 +1,85 @@
+{
+  "meal": [
+    {
+      "id": "1",
+      "type": "burger",
+      "title": "Маминькин Сынок",
+      "subtitle": "Вегетарианский бургер на растительном мясе",
+      "price": "600",
+      "size": ["s", "m", "l"],
+      "pictureUrl": ""
+    },
+    {
+      "id": "2",
+      "type": "burger",
+      "title": "Большой Дядя",
+      "subtitle": "Бургер с говядиной",
+      "price": "500",
+      "size": ["s", "m", "l"],
+      "pictureUrl": ""
+    },
+    {
+      "id": "3",
+      "type": "burger",
+      "title": "Сырный Олег",
+      "subtitle": "Бургер со свиной котлетой и с добавлением сыра",
+      "price": "550",
+      "size": ["s", "m", "l"],
+      "pictureUrl": ""
+    },
+    {
+      "id": "4",
+      "type": "pizza",
+      "title": "Помидорная Маргарита",
+      "subtitle": "Маргарита с двойной порцией помидоров",
+      "price": "390",
+      "size": ["s", "m", "l"],
+      "pictureUrl": ""
+    },
+    {
+      "id": "5",
+      "type": "pizza",
+      "title": "4 Сыра",
+      "subtitle": "Пицца с четыремя видами сыра",
+      "price": "400",
+      "size": ["s", "m", "l"],
+      "pictureUrl": ""
+    },
+    {
+      "id": "6",
+      "type": "pizza",
+      "title": "Злой Мексиканец",
+      "subtitle": "Пицца с добавлением острого перца",
+      "price": "550",
+      "size": ["s", "m", "l"],
+      "pictureUrl": ""
+    },
+    {
+      "id": "7",
+      "type": "pasta",
+      "title": "Лапшичный Гад",
+      "subtitle": "Паста с морепродуктами",
+      "price": "550",
+      "size": ["s", "m", "l"],
+      "pictureUrl": ""
+    },
+    {
+      "id": "8",
+      "type": "pasta",
+      "title": "Зеленый Слоник",
+      "subtitle": "Паста с соусом песто",
+      "price": "550",
+      "size": ["s", "m", "l"],
+      "pictureUrl": ""
+    },
+    {
+      "id": "9",
+      "type": "pasta",
+      "title": "Лазанья",
+      "subtitle": "Просто лазанья без выебонов",
+      "price": "550",
+      "size": ["s", "m", "l"],
+      "pictureUrl": ""
+    }
+  ]
+}
