@@ -13,21 +13,21 @@ export class ProductListComponent implements OnInit {
   constructor(private mealService: MealService) {}
 
   ngOnInit(): void {
-    this.getMeal();
-    // this.get();
-    console.log(this.meal);
+    //   this.getMeal();
+    //   // this.get();
+    //   console.log(this.meal);
   }
 
-  private getMeal(): void {
-    this.mealService.getAll().subscribe((meal: IMeal[]) => {
-      this.meal = meal;
-    });
-  }
-
-  // private get(): void {
-  //   this.mealService.get().subscribe((people) => {
-  //     this.people = people;
-  //     console.log(people.results[0].name);
+  // private getMeal(): void {
+  //   this.mealService.getAll().subscribe((meal: IMeal[]) => {
+  //     this.meal = meal;
   //   });
   // }
+
+  // // private get(): void {
+  // //   this.mealService.get().subscribe((people) => {
+  // //     this.people = people;
+  // //     console.log(people.results[0].name);
+  // //   });
+  // // }
 }

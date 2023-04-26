@@ -24,7 +24,6 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     MainPageComponent,
     FavoritesPageComponent,
-    ProfilePageComponent,
     CartPageComponent,
     ProductCardPageComponent,
     NavbarComponent,
