@@ -4,6 +4,8 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { AuthGuard } from './guards/auth.guard';
+import { CartPageRoutingModule } from './pages/cart-page/cart-page-routing.module';
+import { ProfilePageRoutingModule } from './pages/profile-page/profile-page-routing.module';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
@@ -12,18 +14,14 @@ const routes: Routes = [
     component: FavoritesPageComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'cart', component: CartPageComponent },
-  {
-    path: 'profile',
-    loadChildren: () =>
-      import('./pages/profile-page/profile-page-routing.module').then(
-        (m) => m.ProfilePageRoutingModule
-      ),
-  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    CartPageRoutingModule,
+    ProfilePageRoutingModule,
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
