@@ -6,6 +6,7 @@ import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { AuthGuard } from './guards/auth.guard';
 import { CartPageRoutingModule } from './pages/cart-page/cart-page-routing.module';
 import { ProfilePageRoutingModule } from './pages/profile-page/profile-page-routing.module';
+import { CartPageResolver } from './pages/cart-page/cart-page.resolver';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
@@ -23,5 +24,6 @@ const routes: Routes = [
     ProfilePageRoutingModule,
   ],
   exports: [RouterModule],
+  providers: [CartPageResolver],
 })
 export class AppRoutingModule {}
