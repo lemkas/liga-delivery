@@ -14,7 +14,7 @@ export class CartPageComponent implements OnInit {
     this.get();
   }
 
-  get() {
+  get(): void {
     this.router.data.subscribe((res: any) => {
       this.meals = res.data;
     });
