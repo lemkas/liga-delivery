@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IFilter } from 'src/app/interfaces/filter';
 import { IMeal } from 'src/app/interfaces/meal';
 import { MealService } from 'src/app/services/meal.service';
 
@@ -8,14 +9,14 @@ import { MealService } from 'src/app/services/meal.service';
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
+  @Input() filterOptions!: IFilter;
   meal: IMeal[] = [];
   people: any[] = [];
   constructor(private mealService: MealService) {}
 
   ngOnInit(): void {
-    //   this.getMeal();
-    //   // this.get();
-    //   console.log(this.meal);
+    this.meal = this.mealService.meals;
+    console.log(this.meal);
   }
 
   // private getMeal(): void {

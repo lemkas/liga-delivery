@@ -1,5 +1,4 @@
-<form [formGroup]="filterForm" class="filter-form" (submit)="onChangeForm()">
+<form [formGroup]="filterForm" class="filter-form" (change)="onChangeForm()">
   <input type="text" class="search-input" formControlName="searchText" />
   <filter-radio-control formControlName="searchSpec"></filter-radio-control>
-  <button type="submit">Search</button>
 </form>

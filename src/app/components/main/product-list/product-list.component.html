@@ -1,3 +1,5 @@
-<p *ngFor="let food of meal">
-  {{ food }}
+<p *ngFor="let food of meal | filter : filterOptions">
+  {{ food.title }}
+  {{ food.type }}
+  {{ filterOptions.searchSpec }}
 </p>

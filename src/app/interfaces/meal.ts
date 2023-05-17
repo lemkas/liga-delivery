@@ -1,6 +1,8 @@
+import { MEALTYPES } from './filter';
+
 export interface IMeal {
   id: string;
-  type: string;
+  type: MEALTYPES;
   title: string;
   subtitle: string;
   price: string;

@@ -19,6 +19,7 @@ import { MaterialModule } from './material/material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FilterRadioControlComponent } from './ui/controls/filter-radio-control/filter-radio-control.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { FilterRadioControlComponent } from './ui/controls/filter-radio-control/
     ProductListComponent,
     ProductListItemComponent,
     FilterRadioControlComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

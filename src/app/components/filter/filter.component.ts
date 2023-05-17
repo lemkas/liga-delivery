@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MEALTYPES } from 'src/app/interfaces/filter';
 
 @Component({
   selector: 'filter',
@@ -8,6 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class FilterComponent implements OnInit {
   filterForm!: FormGroup;
+  @Output() getFilter = new EventEmitter();
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
@@ -17,11 +19,11 @@ export class FilterComponent implements OnInit {
   private initForm(): void {
     this.filterForm = this.fb.nonNullable.group({
       searchText: '',
-      searchSpec: 'burgers',
+      searchSpec: MEALTYPES.BURGERS,
     });
   }
 
   onChangeForm(): void {
-    console.log(this.filterForm.value);
+    this.getFilter.emit(this.filterForm.value);
   }
 }

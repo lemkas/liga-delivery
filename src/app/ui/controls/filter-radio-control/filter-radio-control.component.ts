@@ -4,6 +4,7 @@ import {
   FormControl,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
+import { MEALTYPES } from 'src/app/interfaces/filter';
 
 @Component({
   selector: 'filter-radio-control',
@@ -27,12 +28,12 @@ export class FilterRadioControlComponent
 
   ngOnInit(): void {
     this.element = this.elementRef.nativeElement as HTMLElement;
-    this.searchSpec.valueChanges.subscribe((value: string) => {
-      console.log(value);
+    this.searchSpec.valueChanges.subscribe((value: MEALTYPES) => {
+      this.onChange(value);
     });
   }
 
-  writeValue(value: string): void {
+  writeValue(value: MEALTYPES): void {
     this.searchSpec.setValue(value);
   }
 
