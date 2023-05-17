@@ -1,8 +1,22 @@
 .filter-form {
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width: 100%;
   align-items: center;
+  padding-top: 50px;
+}
+
+.search-input {
+  width: 87%;
+  padding: 7px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 4px 4px 48px 0px rgba(34, 60, 80, 0.2);
+}
+
+.search-input:focus {
+  outline: 2px ridge #e04e35;
 }
 
 .icon {

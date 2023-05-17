@@ -18,6 +18,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material/material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { FilterRadioControlComponent } from './ui/controls/filter-radio-control/filter-radio-control.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     MainComponent,
     ProductListComponent,
     ProductListItemComponent,
+    FilterRadioControlComponent,
   ],
   imports: [
     BrowserModule,

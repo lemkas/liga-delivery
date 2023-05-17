@@ -20,4 +20,8 @@ export class FilterComponent implements OnInit {
       searchSpec: 'burgers',
     });
   }
+
+  onChangeForm(): void {
+    console.log(this.filterForm.value);
+  }
 }

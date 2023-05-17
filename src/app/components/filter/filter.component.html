@@ -1,11 +1,5 @@
-<form [formGroup]="filterForm" class="filter-form">
-  <mat-form-field>
-    <input matInput formControlName="searchText" appearance="outline" />
-    <mat-icon matSuffix [inline]="true">search</mat-icon>
-  </mat-form-field>
-  <mat-radio-group formControlName="searchSpec" class="radio-buttons">
-    <mat-radio-button value="burgers">Burgers</mat-radio-button>
-    <mat-radio-button value="pizza">Pizza</mat-radio-button>
-    <mat-radio-button value="pasta">Pasta</mat-radio-button>
-  </mat-radio-group>
+<form [formGroup]="filterForm" class="filter-form" (submit)="onChangeForm()">
+  <input type="text" class="search-input" formControlName="searchText" />
+  <filter-radio-control formControlName="searchSpec"></filter-radio-control>
+  <button type="submit">Search</button>
 </form>

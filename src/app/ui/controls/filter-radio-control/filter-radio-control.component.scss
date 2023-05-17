@@ -1,0 +1,49 @@
+.custom-radio-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.form_radio_btn {
+  display: inline-block;
+  margin-right: 10px;
+}
+.form_radio_btn input[type="radio"] {
+  display: none;
+}
+.radio_btn_content {
+  display: inline-block;
+  cursor: pointer;
+  width: 110px;
+  height: 180px;
+  line-height: 34px;
+  border-radius: 6px;
+  user-select: none;
+  box-shadow: 4px 4px 48px 0px rgba(34, 60, 80, 0.2);
+}
+
+.form_radio_btn:last-child {
+  margin-right: 0;
+}
+
+.radio_btn_content div {
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Checked */
+.form_radio_btn input[type="radio"]:checked + label {
+  background: #e04e35;
+  color: white;
+}
+
+/* Hover */
+// .form_radio_btn label:hover {
+//   color: #666;
+// }
+
+/* Disabled */
+.form_radio_btn input[type="radio"]:disabled + label {
+  background: #efefef;
+  color: #666;
+}
