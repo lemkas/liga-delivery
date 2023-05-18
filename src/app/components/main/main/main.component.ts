@@ -15,6 +15,5 @@ export class MainComponent implements OnInit {
 
   getFilter(filter: IFilter) {
     this.filter = filter;
-    console.log(filter);
   }
 }

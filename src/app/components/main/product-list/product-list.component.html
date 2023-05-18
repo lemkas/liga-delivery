@@ -1,5 +1,6 @@
-<p *ngFor="let food of meal | filter : filterOptions">
-  {{ food.title }}
-  {{ food.type }}
-  {{ filterOptions.searchSpec }}
-</p>
+<div class="card-container">
+  <product-list-item
+    *ngFor="let food of meal | filter : filterOptions"
+    [meal]="food"
+  ></product-list-item>
+</div>
