@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IFilter } from 'src/app/interfaces/filter';
+import { IFilter, MEALTYPES } from 'src/app/interfaces/filter';
 
 @Component({
   selector: 'main',
@@ -8,7 +8,10 @@ import { IFilter } from 'src/app/interfaces/filter';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
-  filter!: IFilter;
+  filter: IFilter = {
+    searchSpec: MEALTYPES.BURGERS,
+    searchText: '',
+  };
   constructor() {}
 
   ngOnInit(): void {}
