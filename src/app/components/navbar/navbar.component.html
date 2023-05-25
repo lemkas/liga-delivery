@@ -1,17 +1,12 @@
 <div class="navbar">
   <ul class="navbar-list">
-    <!-- <li class="navbar-list__item"><a routerLink="/">Main</a></li>
-    <li class="navbar-list__item"><a routerLink="/favorites">Favorites</a></li>
-    <li class="navbar-list__item"><a routerLink="/profile">Profile</a></li>
-    <li class="navbar-list__item"><a routerLink="/cart">Cart</a></li> -->
-
     <li class="navbar-list__item">
       <a
         mat-icon-button
-        color="primary"
         matTooltip="Link"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
         routerLink="/"
-        aria-label="Example fab with a heart icon"
       >
         <mat-icon>home</mat-icon>
       </a>
@@ -19,10 +14,9 @@
     <li class="navbar-list__item">
       <a
         mat-icon-button
-        color="accent"
         matTooltip="Link"
+        routerLinkActive="active"
         routerLink="/favorites"
-        aria-label="Example fab with a heart icon"
       >
         <mat-icon>favorite</mat-icon>
       </a>
@@ -30,10 +24,9 @@
     <li class="navbar-list__item">
       <a
         mat-icon-button
-        color="warn"
         matTooltip="Link"
+        routerLinkActive="active"
         routerLink="/profile"
-        aria-label="Example fab with a heart icon"
       >
         <mat-icon>account_circle</mat-icon>
       </a>
@@ -42,8 +35,8 @@
       <a
         mat-icon-button
         matTooltip="Link"
+        routerLinkActive="active"
         routerLink="/cart"
-        aria-label="Example fab with a heart icon"
       >
         <mat-icon>shopping_cart</mat-icon>
       </a>

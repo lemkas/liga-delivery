@@ -30,7 +30,10 @@
 .card-footer {
   display: flex;
   justify-content: space-between;
+  height: 70px;
   margin-top: 10px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .info {
@@ -44,4 +47,8 @@
 
 .title {
   font-weight: 700;
+}
+
+.subtitle {
+  text-overflow: ellipsis;
 }
