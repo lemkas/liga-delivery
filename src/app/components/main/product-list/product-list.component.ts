@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { IFilter } from 'src/app/interfaces/filter';
 import { IMeal } from 'src/app/interfaces/meal';
 import { MealService } from 'src/app/services/meal.service';
@@ -11,24 +12,16 @@ import { MealService } from 'src/app/services/meal.service';
 export class ProductListComponent implements OnInit {
   @Input() filterOptions!: IFilter;
   meal: IMeal[] = [];
-  people: any[] = [];
   constructor(private mealService: MealService) {}
 
   ngOnInit(): void {
-    this.meal = this.mealService.meals;
-    console.log(this.meal);
+    // this.meal = this.mealService.meals;
+    this.getMeals();
   }
 
-  // private getMeal(): void {
-  //   this.mealService.getAll().subscribe((meal: IMeal[]) => {
-  //     this.meal = meal;
-  //   });
-  // }
-
-  // // private get(): void {
-  // //   this.mealService.get().subscribe((people) => {
-  // //     this.people = people;
-  // //     console.log(people.results[0].name);
-  // //   });
-  // // }
+  getMeals(): void {
+    this.mealService.getAll().subscribe((meals) => {
+      this.meal = meals;
+    });
+  }
 }
