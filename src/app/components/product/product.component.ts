@@ -3,6 +3,7 @@ import { MealService } from 'src/app/services/meal.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IMeal } from 'src/app/interfaces/meal';
 import { Subscription } from 'rxjs';
+import { FavouritesService } from 'src/app/services/favourites.service';
 
 @Component({
   selector: 'product',
@@ -17,7 +18,8 @@ export class ProductComponent implements OnInit, OnDestroy {
   constructor(
     private mealService: MealService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private favourites: FavouritesService
   ) {}
 
   ngOnInit(): void {
@@ -33,6 +35,10 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   backHome(): void {
     this.router.navigate(['/']);
+  }
+
+  onClickFavourite(isClicked: boolean): void {
+    console.log(this.favourites.setFavourite(this.id, isClicked));
   }
 
   ngOnDestroy(): void {

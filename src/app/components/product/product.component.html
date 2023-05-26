@@ -1,7 +1,9 @@
 <div class="card">
   <div class="card-header-buttons">
     <back-button (click)="backHome()">back</back-button>
-    <favourite-button>favourites</favourite-button>
+    <favourite-button (onClickFavourite)="onClickFavourite($event)"
+      >favourites</favourite-button
+    >
   </div>
   <div class="card-headers">
     <h2>{{ meal[0].title }}</h2>
