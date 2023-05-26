@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { IMeal } from '../interfaces/meal';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map, pipe } from 'rxjs';
-import { MEALTYPES } from '../interfaces/filter';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +15,7 @@ export class MealService {
     return this.http.get<IMeal[]>(this.baseUrl);
   }
 
-  getOne(): Observable<IMeal> {
-    return this.http.get<IMeal>(this.baseUrl);
+  getOne(id: string | null): Observable<IMeal[]> {
+    return this.getAll().pipe(map((meal) => meal.filter((el) => el.id === id)));
   }
 }

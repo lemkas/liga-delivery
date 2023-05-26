@@ -7,6 +7,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { CartPageRoutingModule } from './pages/cart-page/cart-page-routing.module';
 import { ProfilePageRoutingModule } from './pages/profile-page/profile-page-routing.module';
 import { CartPageResolver } from './pages/cart-page/cart-page.resolver';
+import { ProductCardPageComponent } from './pages/product-card-page/product-card-page.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
@@ -14,6 +15,10 @@ const routes: Routes = [
     path: 'favorites',
     component: FavoritesPageComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path: ':id',
+    component: ProductCardPageComponent,
   },
 ];
 

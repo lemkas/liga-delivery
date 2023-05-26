@@ -1,0 +1,32 @@
+.card-header-buttons {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card-header-buttons span {
+  cursor: pointer;
+}
+
+.card-headers {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-headers p {
+  color: gray;
+}
+
+.card-img-container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-img-container img {
+  width: 80%;
+}

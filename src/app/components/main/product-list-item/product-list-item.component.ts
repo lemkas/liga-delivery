@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IMeal } from 'src/app/interfaces/meal';
 
 @Component({
@@ -8,7 +9,11 @@ import { IMeal } from 'src/app/interfaces/meal';
 })
 export class ProductListItemComponent implements OnInit {
   @Input() meal!: IMeal;
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  openMealPage(): void {
+    this.router.navigate([`/${this.meal.id}`]);
+  }
 }

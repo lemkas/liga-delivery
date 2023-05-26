@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FilterRadioControlComponent } from './ui/controls/filter-radio-control/filter-radio-control.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     ProductListItemComponent,
     FilterRadioControlComponent,
     FilterPipe,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,

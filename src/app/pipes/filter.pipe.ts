@@ -7,8 +7,6 @@ import { IFilter } from '../interfaces/filter';
 })
 export class FilterPipe implements PipeTransform {
   transform(value: IMeal[], filterOptions: IFilter): IMeal[] {
-    console.log(value);
-    console.log(filterOptions);
     if (filterOptions.searchSpec && filterOptions.searchText) {
       return value.filter(
         (meal: IMeal) =>

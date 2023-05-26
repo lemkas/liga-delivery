@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { IFilter, MEALTYPES } from 'src/app/interfaces/filter';
 
 @Component({
