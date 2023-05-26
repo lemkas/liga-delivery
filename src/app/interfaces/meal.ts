@@ -6,6 +6,12 @@ export interface IMeal {
   title: string;
   subtitle: string;
   price: string;
-  size: string[];
+  size: [MEALSIZE.S, MEALSIZE.M, MEALSIZE.L];
   pictureUrl: string;
+}
+
+export enum MEALSIZE {
+  S = 'S',
+  M = 'M',
+  L = 'L',
 }

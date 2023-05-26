@@ -1,3 +1,8 @@
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
 .card-header-buttons {
   margin-top: 10px;
   display: flex;

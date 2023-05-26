@@ -8,6 +8,7 @@ import { CartPageRoutingModule } from './pages/cart-page/cart-page-routing.modul
 import { ProfilePageRoutingModule } from './pages/profile-page/profile-page-routing.module';
 import { CartPageResolver } from './pages/cart-page/cart-page.resolver';
 import { ProductCardPageComponent } from './pages/product-card-page/product-card-page.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },

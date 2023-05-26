@@ -1,0 +1,14 @@
+.favourite-button {
+  box-shadow: 4px 4px 48px 0px rgba(34, 60, 80, 0.2);
+  border-radius: 6px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.favourite-button img {
+  background-color: #e04e35;
+}

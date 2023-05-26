@@ -21,6 +21,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FilterRadioControlComponent } from './ui/controls/filter-radio-control/filter-radio-control.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { ProductComponent } from './components/product/product.component';
+import { CounterControlComponent } from './ui/controls/counter-control/counter-control.component';
+import { SizeRadioControlComponent } from './ui/controls/size-radio-control/size-radio-control.component';
+import { FavouriteButtonComponent } from './ui/buttons/favourite-button/favourite-button.component';
+import { BackButtonComponent } from './ui/buttons/back-button/back-button.component';
 
 @NgModule({
   declarations: [
@@ -28,14 +32,18 @@ import { ProductComponent } from './components/product/product.component';
     MainPageComponent,
     FavoritesPageComponent,
     ProductCardPageComponent,
-    NavbarComponent,
     FilterComponent,
     MainComponent,
     ProductListComponent,
     ProductListItemComponent,
     FilterRadioControlComponent,
     FilterPipe,
+    NavbarComponent,
     ProductComponent,
+    CounterControlComponent,
+    SizeRadioControlComponent,
+    FavouriteButtonComponent,
+    BackButtonComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,21 @@
+.counter-control-container {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  align-items: baseline;
+  user-select: none;
+  font-weight: bold;
+}
+
+.round-button {
+  border-radius: 50px;
+  width: 40px;
+  height: 40px;
+  background-color: #e04f358c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+
+  cursor: pointer;
+}
