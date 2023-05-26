@@ -12,11 +12,14 @@
   <div class="card-img-container">
     <img src="../../../assets/img/img-meal/burger-meal.png" />
   </div>
-  <div class="card-footer">
-    <span
-      ><strong>{{ meal[0].price }}</strong></span
-    >
-  </div>
-  <size-radio-control [size]="meal[0].size"></size-radio-control>
+  <size-radio-control class="size" [size]="meal[0].size"></size-radio-control>
   <counter-control></counter-control>
+  <!-- <div class="card-footer">
+    <span
+      >Цена<strong> {{ meal[0].price }}</strong></span
+    >
+    <div class="cart-button">
+      <span>Add to cart</span>
+    </div>
+  </div> -->
 </div>

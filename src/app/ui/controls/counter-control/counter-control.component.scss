@@ -1,10 +1,11 @@
 .counter-control-container {
   display: flex;
-  width: 50%;
-  justify-content: space-between;
+  // width: 50%;5
+  justify-content: center;
   align-items: baseline;
   user-select: none;
   font-weight: bold;
+  margin-top: 40px;
 }
 
 .round-button {
@@ -16,6 +17,10 @@
   align-items: center;
   justify-content: center;
   color: black;
-
   cursor: pointer;
+}
+
+.result {
+  margin-right: 12.5%;
+  margin-left: 12.5%;
 }
