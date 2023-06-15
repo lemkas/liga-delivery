@@ -7,24 +7,26 @@ import { IFilter } from '../interfaces/filter';
 })
 export class FilterPipe implements PipeTransform {
   transform(value: IMeal[], filterOptions: IFilter): IMeal[] {
-    if (filterOptions.searchSpec && filterOptions.searchText) {
-      return value.filter(
-        (meal: IMeal) =>
-          meal.type === filterOptions.searchSpec &&
-          meal.title
-            .toLocaleLowerCase()
-            .includes(filterOptions?.searchText ?? '')
-      );
-    } else if (filterOptions.searchSpec && !filterOptions.searchText) {
-      return value.filter(
-        (meal: IMeal) => meal.type === filterOptions.searchSpec
-      );
-    } else if (!filterOptions.searchSpec && filterOptions.searchText) {
-      return value.filter((meal: IMeal) =>
-        meal.title.toLocaleLowerCase().includes(filterOptions?.searchText ?? '')
-      );
-    } else {
+    if (!filterOptions) {
       return value;
     }
+
+    let filteredMeal: IMeal[] = value;
+
+    if (filterOptions.searchSpec) {
+      filteredMeal = filteredMeal.filter(
+        (meal: IMeal) => meal.type === filterOptions.searchSpec
+      );
+    }
+
+    if (filterOptions.searchText) {
+      filteredMeal = filteredMeal.filter((meal: IMeal) =>
+        meal.title
+          .toLocaleLowerCase()
+          .includes(filterOptions?.searchText?.toLocaleLowerCase() ?? '')
+      );
+    }
+
+    return filteredMeal;
   }
 }
