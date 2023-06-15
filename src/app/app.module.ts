@@ -25,6 +25,7 @@ import { CounterControlComponent } from './ui/controls/counter-control/counter-c
 import { SizeRadioControlComponent } from './ui/controls/size-radio-control/size-radio-control.component';
 import { FavouriteButtonComponent } from './ui/buttons/favourite-button/favourite-button.component';
 import { BackButtonComponent } from './ui/buttons/back-button/back-button.component';
+import { FavouritesListComponent } from './components/favourites/favourites-list/favourites-list.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { BackButtonComponent } from './ui/buttons/back-button/back-button.compon
     SizeRadioControlComponent,
     FavouriteButtonComponent,
     BackButtonComponent,
+    FavouritesListComponent,
   ],
   imports: [
     BrowserModule,

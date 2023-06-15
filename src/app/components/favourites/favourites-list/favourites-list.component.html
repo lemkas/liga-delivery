@@ -1,0 +1,9 @@
+<div class="card-container">
+  <product-list-item
+    *ngFor="let food of meal"
+    [meal]="food"
+  ></product-list-item>
+  <h2 *ngIf="meal.length === 0" class="empty">
+    У вас пока что нет любимых блюд..(
+  </h2>
+</div>

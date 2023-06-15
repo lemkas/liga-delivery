@@ -9,6 +9,11 @@
   cursor: pointer;
 }
 
+.favourite-button:active svg {
+  height: 25px;
+  width: 25px;
+}
+
 .favourite-button img {
   background-color: #e04e35;
 }

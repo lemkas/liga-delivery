@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { MealService } from 'src/app/services/meal.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { IMeal } from 'src/app/interfaces/meal';
 import { Subscription } from 'rxjs';
 import { FavouritesService } from 'src/app/services/favourites.service';
@@ -18,8 +19,8 @@ export class ProductComponent implements OnInit, OnDestroy {
   constructor(
     private mealService: MealService,
     private route: ActivatedRoute,
-    private router: Router,
-    private favourites: FavouritesService
+    private favourites: FavouritesService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -34,7 +35,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   }
 
   backHome(): void {
-    this.router.navigate(['/']);
+    this.location.back();
   }
 
   onClickFavourite(isClicked: boolean): void {
