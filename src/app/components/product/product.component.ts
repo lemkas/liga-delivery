@@ -38,7 +38,11 @@ export class ProductComponent implements OnInit, OnDestroy {
   }
 
   onClickFavourite(isClicked: boolean): void {
-    console.log(this.favourites.setFavourite(this.id, isClicked));
+    console.log(this.favourites.setFavourite(this.id));
+  }
+
+  checkFavourite(id: string): boolean {
+    return this.favourites.isFavourite(id);
   }
 
   ngOnDestroy(): void {

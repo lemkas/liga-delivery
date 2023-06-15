@@ -6,18 +6,28 @@ import { Injectable } from '@angular/core';
 })
 export class FavouritesService {
   constructor(private http: HttpClient) {}
+  private favoutites: string[] = [];
 
-  setFavourite(id: string | null, isFavourite: boolean) {
-    return isFavourite
-      ? `Блюдо с ID: ${id} добавлено в избранные`
-      : `Блюдо с ID: ${id} убрано из избранных`;
+  setFavourite(id: string | null): string {
+    let indexOfMealId = this.favoutites.indexOf(id!);
+    if (indexOfMealId !== -1) {
+      this.favoutites.splice(indexOfMealId, 1);
+      return `Блюдо с ID: ${id} убрано из избранных`;
+    } else {
+      this.favoutites.push(id!);
+      return `Блюдо с ID: ${id} добавлено в избранные`;
+    }
   }
 
-  private createFavourite(mealId: string, userId: string): void {
-    const body = {
-      mealId,
-      userId,
-    };
-    this.http.post('U', body);
+  isFavourite(id: string): boolean {
+    return !!this.favoutites.find((val) => val === id);
   }
+
+  // private createFavourite(mealId: string, userId: string): void {
+  //   const body = {
+  //     mealId,
+  //     userId,
+  //   };
+  //   this.http.post('U', body);
+  // }
 }

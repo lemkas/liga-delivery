@@ -1,7 +1,9 @@
 <div class="card">
   <div class="card-header-buttons">
     <back-button (click)="backHome()">back</back-button>
-    <favourite-button (onClickFavourite)="onClickFavourite($event)"
+    <favourite-button
+      [isClicked]="checkFavourite(meal[0].id)"
+      (onClickFavourite)="onClickFavourite($event)"
       >favourites</favourite-button
     >
   </div>
@@ -14,12 +16,4 @@
   </div>
   <size-radio-control class="size" [size]="meal[0].size"></size-radio-control>
   <counter-control></counter-control>
-  <!-- <div class="card-footer">
-    <span
-      >Цена<strong> {{ meal[0].price }}</strong></span
-    >
-    <div class="cart-button">
-      <span>Add to cart</span>
-    </div>
-  </div> -->
 </div>

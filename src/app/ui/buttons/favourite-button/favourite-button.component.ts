@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'favourite-button',
@@ -6,7 +6,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./favourite-button.component.scss'],
 })
 export class FavouriteButtonComponent implements OnInit {
-  isClicked: boolean = false;
+  @Input() isClicked: boolean = false;
   @Output() onClickFavourite = new EventEmitter();
   constructor() {}
 
