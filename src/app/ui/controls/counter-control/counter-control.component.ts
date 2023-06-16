@@ -6,17 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./counter-control.component.scss'],
 })
 export class CounterControlComponent implements OnInit {
-  result: number = 0;
+  result: number = 1;
   constructor() {}
 
   increment(): void {
-    if (this.result <= 9) {
+    if (this.result < 9) {
       this.result++;
     }
   }
 
   decrement(): void {
-    if (this.result >= 1) {
+    if (this.result > 1) {
       this.result--;
     }
   }

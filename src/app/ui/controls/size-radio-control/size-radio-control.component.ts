@@ -1,4 +1,10 @@
-import { Component, Input, OnInit, forwardRef } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  forwardRef,
+} from '@angular/core';
 import {
   ControlValueAccessor,
   FormControl,
@@ -17,10 +23,29 @@ import {
     },
   ],
 })
-export class SizeRadioControlComponent implements OnInit {
+export class SizeRadioControlComponent implements OnInit, ControlValueAccessor {
   @Input() size!: string[];
+  private onChange(value: string): void {}
+  private element!: HTMLElement;
+  selectedOption: string = 'm';
   sizeControl = new FormControl();
-  constructor() {}
+  constructor(private readonly elementRef: ElementRef) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.element = this.elementRef.nativeElement as HTMLElement;
+    this.sizeControl.valueChanges.subscribe((value: string) => {
+      this.onChange(value);
+    });
+    console.log(this.size);
+  }
+
+  writeValue(value: string): void {
+    this.sizeControl.setValue(value);
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {}
 }

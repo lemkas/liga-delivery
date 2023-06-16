@@ -14,6 +14,12 @@
   <div class="card-img-container">
     <img src="../../../assets/img/img-meal/burger-meal.png" />
   </div>
-  <size-radio-control class="size" [size]="meal[0].size"></size-radio-control>
+  <form [formGroup]="mealForm" (change)="submitForm()">
+    <size-radio-control
+      class="size"
+      [size]="meal[0].size"
+      formControlName="sizeControl"
+    ></size-radio-control>
+  </form>
   <counter-control></counter-control>
 </div>
