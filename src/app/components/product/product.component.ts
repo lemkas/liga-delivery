@@ -41,6 +41,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   private initForm(): void {
     this.mealForm = this.fb.nonNullable.group({
       sizeControl: 'm',
+      counterControl: 1,
     });
   }
 

@@ -14,12 +14,15 @@
   <div class="card-img-container">
     <img src="../../../assets/img/img-meal/burger-meal.png" />
   </div>
-  <form [formGroup]="mealForm" (change)="submitForm()">
+  <form [formGroup]="mealForm" (submit)="submitForm()">
     <size-radio-control
       class="size"
       [size]="meal[0].size"
       formControlName="sizeControl"
     ></size-radio-control>
+    <counter-control formControlName="counterControl"></counter-control>
+    <div class="footer">
+      <button type="submit" class="cart-button">Add to Cart</button>
+    </div>
   </form>
-  <counter-control></counter-control>
 </div>
