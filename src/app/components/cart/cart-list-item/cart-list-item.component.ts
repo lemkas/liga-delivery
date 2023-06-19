@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ICartItem } from 'src/app/interfaces/cart-item';
 
 @Component({
   selector: 'cart-list-item',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart-list-item.component.scss'],
 })
 export class CartListItemComponent implements OnInit {
+  @Input() cartItem!: ICartItem;
   constructor() {}
 
   ngOnInit(): void {}

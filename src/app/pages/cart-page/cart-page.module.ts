@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CartPageResolver } from './cart-page.resolver';
 import { CartListComponent } from 'src/app/components/cart/cart-list/cart-list.component';
 import { CartListItemComponent } from 'src/app/components/cart/cart-list-item/cart-list-item.component';
+import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
   {
@@ -14,7 +15,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [CartPageComponent, CartListComponent, CartListItemComponent],
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes), CommonModule],
   providers: [CartPageResolver],
 })
 export class CartPageModule {}

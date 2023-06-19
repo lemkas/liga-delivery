@@ -12,8 +12,4 @@ export class CartService {
     this.cartItems.push(cartItem);
     return 'Блюдо добавлено в корзину';
   }
-
-  getCart(): ICartItem[] {
-    return this.cartItems;
-  }
 }

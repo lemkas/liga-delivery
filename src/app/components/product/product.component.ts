@@ -55,14 +55,18 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   submitForm(): void {
     const cartItemId = UUID.UUID();
+    let mealPrice =
+      Number(this.meal[0].price) * this.mealForm.value.counterControl;
     const cartItem: ICartItem = {
       id: cartItemId,
       mealId: this.getId(),
+      mealPrice,
       size: this.mealForm.value.sizeControl,
       count: this.mealForm.value.counterControl,
     };
 
     console.log(this.cartService.addToCart(cartItem));
+    console.log(cartItem);
   }
 
   backHome(): void {
