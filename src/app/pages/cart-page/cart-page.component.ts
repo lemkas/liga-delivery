@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cart-page',
@@ -7,17 +6,5 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./cart-page.component.scss'],
 })
 export class CartPageComponent implements OnInit {
-  meals: [] = [];
-  constructor(private router: ActivatedRoute) {}
-
-  ngOnInit(): void {
-    this.get();
-  }
-
-  get(): void {
-    this.router.data.subscribe((res: any) => {
-      this.meals = res.data;
-    });
-    console.log(this.meals);
-  }
+  ngOnInit(): void {}
 }

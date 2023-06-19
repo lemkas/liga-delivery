@@ -6,6 +6,9 @@ import { IMeal } from 'src/app/interfaces/meal';
 import { Subscription } from 'rxjs';
 import { FavouritesService } from 'src/app/services/favourites.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { UUID } from 'angular2-uuid';
+import { ICartItem } from 'src/app/interfaces/cart-item';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'product',
@@ -23,17 +26,22 @@ export class ProductComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private favourites: FavouritesService,
     private location: Location,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id');
     this.getMeal();
     this.initForm();
   }
 
+  private getId(): string {
+    return (this.id = this.route.snapshot.paramMap.get('id')!);
+  }
+
   private getMeal(): void {
-    this.subscribtion = this.mealService.getOne(this.id).subscribe((meal) => {
+    const id = this.getId();
+    this.subscribtion = this.mealService.getOne(id).subscribe((meal) => {
       this.meal = meal;
     });
   }
@@ -46,12 +54,15 @@ export class ProductComponent implements OnInit, OnDestroy {
   }
 
   submitForm(): void {
-    const cartItem = {
-      id: this.id,
-      ...this.mealForm.value,
+    const cartItemId = UUID.UUID();
+    const cartItem: ICartItem = {
+      id: cartItemId,
+      mealId: this.getId(),
+      size: this.mealForm.value.sizeControl,
+      count: this.mealForm.value.counterControl,
     };
 
-    console.log(cartItem);
+    console.log(this.cartService.addToCart(cartItem));
   }
 
   backHome(): void {

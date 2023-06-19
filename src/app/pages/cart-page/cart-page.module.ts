@@ -2,19 +2,18 @@ import { NgModule } from '@angular/core';
 import { CartPageComponent } from './cart-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { CartPageResolver } from './cart-page.resolver';
+import { CartListComponent } from 'src/app/components/cart/cart-list/cart-list.component';
+import { CartListItemComponent } from 'src/app/components/cart/cart-list-item/cart-list-item.component';
 
 const routes: Routes = [
   {
     path: '',
     component: CartPageComponent,
-    resolve: {
-      data: CartPageResolver,
-    },
   },
 ];
 
 @NgModule({
-  declarations: [CartPageComponent],
+  declarations: [CartPageComponent, CartListComponent, CartListItemComponent],
   imports: [RouterModule.forChild(routes)],
   providers: [CartPageResolver],
 })
