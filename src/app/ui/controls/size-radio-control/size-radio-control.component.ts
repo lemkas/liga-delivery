@@ -27,7 +27,6 @@ export class SizeRadioControlComponent implements OnInit, ControlValueAccessor {
   @Input() size!: string[];
   private onChange(value: string): void {}
   private element!: HTMLElement;
-  selectedOption: string = 'm';
   sizeControl = new FormControl();
   constructor(private readonly elementRef: ElementRef) {}
 
@@ -36,7 +35,6 @@ export class SizeRadioControlComponent implements OnInit, ControlValueAccessor {
     this.sizeControl.valueChanges.subscribe((value: string) => {
       this.onChange(value);
     });
-    console.log(this.size);
   }
 
   writeValue(value: string): void {

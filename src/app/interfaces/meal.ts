@@ -11,7 +11,7 @@ export interface IMeal {
 }
 
 export enum MEALSIZE {
-  S = 'S',
-  M = 'M',
-  L = 'L',
+  S = 's',
+  M = 'm',
+  L = 'l',
 }

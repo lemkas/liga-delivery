@@ -46,7 +46,12 @@ export class ProductComponent implements OnInit, OnDestroy {
   }
 
   submitForm(): void {
-    console.log(this.mealForm.value);
+    const cartItem = {
+      id: this.id,
+      ...this.mealForm.value,
+    };
+
+    console.log(cartItem);
   }
 
   backHome(): void {

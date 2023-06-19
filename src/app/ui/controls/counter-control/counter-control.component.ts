@@ -1,10 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  Input,
-  OnInit,
-  forwardRef,
-} from '@angular/core';
+import { Component, OnInit, forwardRef } from '@angular/core';
 import {
   ControlValueAccessor,
   FormControl,
