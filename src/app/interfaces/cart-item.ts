@@ -6,4 +6,5 @@ export interface ICartItem {
   mealPrice: number;
   size: MEALSIZE;
   count: number;
+  title: string;
 }

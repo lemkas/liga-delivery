@@ -4,15 +4,19 @@
       <img src="../../../../assets/img/img-meal/burger-meal.png" alt="" />
     </div>
     <div class="center">
-      <p class="title">Бургер со свининойакув...</p>
+      <p class="title">{{ cartItem.title }}</p>
       <div class="counter">de</div>
     </div>
     <div class="right">
       <div class="delete-button">
-        <img src="../../../../assets/img/button-icons/delete.svg" alt="" />
+        <img
+          src="../../../../assets/img/button-icons/delete.svg"
+          alt=""
+          (click)="deleteCartItem(cartItem.id)"
+        />
       </div>
       <div class="sum">
-        <strong>$90</strong>
+        <strong>${{ cartItem.mealPrice }}</strong>
       </div>
     </div>
   </div>

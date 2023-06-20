@@ -9,8 +9,20 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartListComponent implements OnInit {
   constructor(private cartService: CartService) {}
-  cartItems: ICartItem[] = this.cartService.cartItems;
+  cartItems: ICartItem[] = [];
   ngOnInit(): void {
+    this.getCartItems();
     console.log(this.cartItems);
+  }
+
+  private getCartItems(): void {
+    this.cartService.getCartItems().subscribe((item: ICartItem) => {
+      this.cartItems.push(item);
+    });
+  }
+
+  deleteCartItem(id: string): void {
+    // this.cartService.deleteCartItem(id);
+    this.cartItems = this.cartItems.filter((item) => item.id !== id);
   }
 }

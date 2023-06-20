@@ -61,6 +61,7 @@ export class ProductComponent implements OnInit, OnDestroy {
       id: cartItemId,
       mealId: this.getId(),
       mealPrice,
+      title: this.meal[0].title,
       size: this.mealForm.value.sizeControl,
       count: this.mealForm.value.counterControl,
     };
