@@ -3,6 +3,9 @@
     <div class="cart-header">
       <h2>Cart</h2>
     </div>
+    <!-- <h2 *ngIf="cartItems.length === 0" class="empty">
+      У вас пока что пустая корзинка..(
+    </h2> -->
     <div class="cart-list">
       <cart-list-item
         *ngFor="let cartItem of cartItems"
@@ -10,6 +13,24 @@
         (deleteRecord)="deleteCartItem($event)"
       ></cart-list-item>
     </div>
-    <div class="cheque"></div>
+    <hr class="separate-line" noshade />
+    <div class="cheque">
+      <div class="cheque-item">
+        <span>Item Total:</span>
+        <span><strong>50$</strong></span>
+      </div>
+      <div class="cheque-item">
+        <span>Delivery Charge:</span>
+        <span><strong>50$</strong></span>
+      </div>
+      <div class="cheque-item">
+        <span>Tax:</span>
+        <span><strong>50$</strong></span>
+      </div>
+      <div class="cheque-item big">
+        <span>Total:</span>
+        <span><strong>50$</strong></span>
+      </div>
+    </div>
   </div>
 </div>

@@ -17,6 +17,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ProductComponent implements OnInit, OnDestroy {
   meal!: IMeal[];
+  isInCart: boolean = false;
   id!: string | null;
   prevUrl!: string;
   subscribtion!: Subscription;
@@ -33,6 +34,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getMeal();
     this.initForm();
+    this.CheckInCart();
   }
 
   private getId(): string {
@@ -67,6 +69,7 @@ export class ProductComponent implements OnInit, OnDestroy {
     };
 
     console.log(this.cartService.addToCart(cartItem));
+    this.CheckInCart();
     console.log(cartItem);
   }
 
@@ -84,5 +87,10 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscribtion.unsubscribe();
+  }
+
+  CheckInCart(): void {
+    this.isInCart = this.cartService.isInCart(this.id!);
+    console.log(this.isInCart);
   }
 }

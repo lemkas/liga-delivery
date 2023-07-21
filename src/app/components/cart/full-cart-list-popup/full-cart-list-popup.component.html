@@ -1,0 +1,6 @@
+<cart-list-item
+  *ngFor="let cartItem of cartItems"
+  [cartItem]="cartItem"
+  (deleteRecord)="deleteCartItem($event)"
+></cart-list-item>
+<div>хуй</div>

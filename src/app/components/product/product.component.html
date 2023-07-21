@@ -22,7 +22,10 @@
     ></size-radio-control>
     <counter-control formControlName="counterControl"></counter-control>
     <div class="footer">
-      <button type="submit" class="cart-button">ADD TO CART</button>
+      <button *ngIf="!isInCart" type="submit" class="cart-button">
+        ADD TO CART
+      </button>
+      <button *ngIf="isInCart" class="cart-button">REMOVE FROM TO CART</button>
     </div>
   </form>
 </div>

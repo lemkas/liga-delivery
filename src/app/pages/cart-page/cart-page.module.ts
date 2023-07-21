@@ -5,6 +5,7 @@ import { CartPageResolver } from './cart-page.resolver';
 import { CartListComponent } from 'src/app/components/cart/cart-list/cart-list.component';
 import { CartListItemComponent } from 'src/app/components/cart/cart-list-item/cart-list-item.component';
 import { CommonModule } from '@angular/common';
+import { FullCartListPopupComponent } from 'src/app/components/cart/full-cart-list-popup/full-cart-list-popup.component';
 
 const routes: Routes = [
   {
@@ -14,7 +15,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [CartPageComponent, CartListComponent, CartListItemComponent],
+  declarations: [
+    CartPageComponent,
+    CartListComponent,
+    CartListItemComponent,
+    FullCartListPopupComponent,
+  ],
   imports: [RouterModule.forChild(routes), CommonModule],
   providers: [CartPageResolver],
 })

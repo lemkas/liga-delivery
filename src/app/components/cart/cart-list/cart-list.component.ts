@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ICartItem } from 'src/app/interfaces/cart-item';
 import { CartService } from 'src/app/services/cart.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'cart-list',
@@ -8,21 +9,19 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./cart-list.component.scss'],
 })
 export class CartListComponent implements OnInit {
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private dialog: MatDialog) {}
   cartItems: ICartItem[] = [];
   ngOnInit(): void {
     this.getCartItems();
-    console.log(this.cartItems);
   }
 
   private getCartItems(): void {
-    this.cartService.getCartItems().subscribe((item: ICartItem) => {
-      this.cartItems.push(item);
-    });
+    this.cartItems = this.cartService.getCartItems();
+    console.log(this.cartItems);
   }
 
   deleteCartItem(id: string): void {
-    // this.cartService.deleteCartItem(id);
-    this.cartItems = this.cartItems.filter((item) => item.id !== id);
+    this.cartService.deleteCartItem(id);
+    this.getCartItems();
   }
 }
