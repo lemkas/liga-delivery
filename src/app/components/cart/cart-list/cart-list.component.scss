@@ -23,6 +23,7 @@
 
 .empty {
   margin-top: 40vh;
+  text-align: center;
 }
 
 .cheque {
@@ -42,4 +43,17 @@
 
 .big {
   font-size: 15px;
+}
+
+.cart-button {
+  width: 100%;
+  background-color: #e04e35;
+  padding: 20px;
+  height: 100%;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }

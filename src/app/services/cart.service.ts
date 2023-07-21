@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ICartItem } from '../interfaces/cart-item';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +10,7 @@ export class CartService {
   public tax: number = 0.25;
   public deliveryCharge: number = 2.5;
   sub$ = new BehaviorSubject<ICartItem[]>([]);
+  isInCartSub$ = new BehaviorSubject<boolean>(false);
   constructor() {}
 
   addToCart(cartItem: ICartItem): string {
@@ -29,7 +30,13 @@ export class CartService {
     console.log(this.cartItems);
   }
 
-  isInCart(cartItemId: string): boolean {
-    return !!this.cartItems.find((item) => item.id === cartItemId);
+  CheckInCart(cartItemId: string): BehaviorSubject<boolean> {
+    let isInCart!: boolean;
+    this.sub$.subscribe((items) => {
+      isInCart = !!items.find((item) => item.id === cartItemId);
+      this.isInCartSub$.next(isInCart);
+    });
+
+    return this.isInCartSub$;
   }
 }

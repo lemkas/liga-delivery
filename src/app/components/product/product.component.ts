@@ -17,8 +17,9 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ProductComponent implements OnInit, OnDestroy {
   meal!: IMeal[];
-  isInCart: boolean = false;
+  isInCart!: boolean;
   id!: string | null;
+  cartItemId!: string;
   prevUrl!: string;
   subscribtion!: Subscription;
   mealForm!: FormGroup;
@@ -56,11 +57,11 @@ export class ProductComponent implements OnInit, OnDestroy {
   }
 
   submitForm(): void {
-    const cartItemId = UUID.UUID();
+    this.cartItemId = UUID.UUID();
     let mealPrice =
       Number(this.meal[0].price) * this.mealForm.value.counterControl;
     const cartItem: ICartItem = {
-      id: cartItemId,
+      id: this.cartItemId,
       mealId: this.getId(),
       mealPrice,
       title: this.meal[0].title,
@@ -69,7 +70,7 @@ export class ProductComponent implements OnInit, OnDestroy {
     };
 
     console.log(this.cartService.addToCart(cartItem));
-    this.CheckInCart();
+    // this.CheckInCart();
     console.log(cartItem);
   }
 
@@ -85,12 +86,17 @@ export class ProductComponent implements OnInit, OnDestroy {
     return this.favourites.isFavourite(id);
   }
 
-  ngOnDestroy(): void {
-    this.subscribtion.unsubscribe();
+  private CheckInCart(): void {
+    this.cartService.sub$.subscribe((items: ICartItem[]) => {
+      this.isInCart = !!items.find((item) => item.id === this.cartItemId);
+    });
   }
 
-  CheckInCart(): void {
-    this.isInCart = this.cartService.isInCart(this.id!);
-    console.log(this.isInCart);
+  removeFromCart(): void {
+    this.cartService.deleteCartItem(this.cartItemId);
+  }
+
+  ngOnDestroy(): void {
+    this.subscribtion.unsubscribe();
   }
 }

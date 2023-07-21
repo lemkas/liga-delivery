@@ -18,10 +18,11 @@
   align-items: center;
 }
 
-.left img {
+.left .img {
   max-width: 50%;
   margin: 0;
   padding: 0;
+  cursor: pointer;
 }
 
 .right {

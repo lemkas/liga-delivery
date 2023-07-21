@@ -1,7 +1,12 @@
 <div class="cart-item-card">
   <div class="content-wrapper">
     <div class="left">
-      <img src="../../../../assets/img/img-meal/burger-meal.png" alt="" />
+      <img
+        src="../../../../assets/img/img-meal/burger-meal.png"
+        alt=""
+        class="img"
+        (click)="openMealPage()"
+      />
     </div>
     <div class="center">
       <p class="title">{{ cartItem.title }}</p>

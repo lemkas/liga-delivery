@@ -25,7 +25,9 @@
       <button *ngIf="!isInCart" type="submit" class="cart-button">
         ADD TO CART
       </button>
-      <button *ngIf="isInCart" class="cart-button">REMOVE FROM TO CART</button>
+      <a *ngIf="isInCart" class="cart-button" (click)="removeFromCart()">
+        REMOVE FROM TO CART
+      </a>
     </div>
   </form>
 </div>
