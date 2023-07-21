@@ -7,6 +7,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
   public cartItems: ICartItem[] = [];
+  public tax: number = 0.25;
+  public deliveryCharge: number = 2.5;
   sub$ = new BehaviorSubject<ICartItem[]>([]);
   constructor() {}
 
@@ -29,11 +31,5 @@ export class CartService {
 
   isInCart(cartItemId: string): boolean {
     return !!this.cartItems.find((item) => item.id === cartItemId);
-  }
-
-  getTotal(): number {
-    let total: number = 0;
-    this.cartItems.forEach((item) => (total += item.mealPrice));
-    return total;
   }
 }
