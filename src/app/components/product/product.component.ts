@@ -5,7 +5,12 @@ import { ActivatedRoute } from '@angular/router';
 import { IMeal } from 'src/app/interfaces/meal';
 import { Subscription } from 'rxjs';
 import { FavouritesService } from 'src/app/services/favourites.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+} from '@angular/forms';
 import { UUID } from 'angular2-uuid';
 import { ICartItem } from 'src/app/interfaces/cart-item';
 import { CartService } from 'src/app/services/cart.service';
@@ -18,6 +23,7 @@ import { CartService } from 'src/app/services/cart.service';
 export class ProductComponent implements OnInit, OnDestroy {
   meal!: IMeal[];
   isInCart!: boolean;
+  count: number = 1;
   id!: string | null;
   cartItemId!: string;
   prevUrl!: string;
@@ -35,6 +41,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getMeal();
     this.initForm();
+    this.changeCount();
     this.CheckInCart();
   }
 
@@ -52,14 +59,13 @@ export class ProductComponent implements OnInit, OnDestroy {
   private initForm(): void {
     this.mealForm = this.fb.nonNullable.group({
       sizeControl: 'm',
-      counterControl: 1,
+      counterControl: this.count,
     });
   }
 
   submitForm(): void {
     this.cartItemId = UUID.UUID();
-    let mealPrice =
-      Number(this.meal[0].price) * this.mealForm.value.counterControl;
+    let mealPrice = Number(this.meal[0].price);
     const cartItem: ICartItem = {
       id: this.cartItemId,
       mealId: this.getId(),
@@ -70,8 +76,23 @@ export class ProductComponent implements OnInit, OnDestroy {
     };
 
     console.log(this.cartService.addToCart(cartItem));
-    // this.CheckInCart();
     console.log(cartItem);
+  }
+
+  private changeCount(): void {
+    const countControl = this.mealForm.get('counterControl');
+    countControl?.valueChanges.subscribe((value) => {
+      if (value === 0) {
+        this.removeFromCart(this.cartItemId);
+      } else {
+        this.cartService.changeCount(
+          this.id!,
+          value,
+          Number(this.meal[0].price)
+        );
+        console.log(value);
+      }
+    });
   }
 
   backHome(): void {
@@ -88,12 +109,14 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   private CheckInCart(): void {
     this.cartService.sub$.subscribe((items: ICartItem[]) => {
-      this.isInCart = !!items.find((item) => item.id === this.cartItemId);
+      const cartItem = items.find((item) => item.mealId === this.id);
+      this.isInCart = !!cartItem;
+      cartItem ? (this.count = cartItem.count) : null;
     });
   }
 
-  removeFromCart(): void {
-    this.cartService.deleteCartItem(this.cartItemId);
+  removeFromCart(cartItemId: string): void {
+    this.cartService.deleteCartItem(this.id!);
   }
 
   ngOnDestroy(): void {

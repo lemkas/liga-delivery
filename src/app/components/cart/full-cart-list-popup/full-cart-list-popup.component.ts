@@ -1,6 +1,5 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ICartItem } from 'src/app/interfaces/cart-item';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -9,18 +8,16 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./full-cart-list-popup.component.scss'],
 })
 export class FullCartListPopupComponent implements OnInit {
-  constructor(private cartService: CartService) {}
-  cartItems: ICartItem[] = [];
-  ngOnInit(): void {
-    this.getData();
+  constructor(private cartService: CartService, private dialog: MatDialog) {}
+
+  ngOnInit(): void {}
+
+  confirm(): void {
+    this.cartService.createOrder();
+    this.dialog.closeAll();
   }
 
-  private getData(): void {
-    this.cartItems = this.cartService.getCartItems();
-  }
-
-  deleteCartItem(id: string): void {
-    this.cartService.deleteCartItem(id);
-    this.getData();
+  cancel(): void {
+    this.dialog.closeAll();
   }
 }

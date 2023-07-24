@@ -1,0 +1,32 @@
+.cheque {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.title {
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+
+.button {
+  width: 100px;
+  padding: 10px;
+  height: 50%;
+  background-color: #e04e35;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button.cancel {
+  background-color: #4885ed;
+}

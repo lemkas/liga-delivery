@@ -1,4 +1,4 @@
-import { Component, OnInit, forwardRef } from '@angular/core';
+import { Component, Input, OnInit, forwardRef } from '@angular/core';
 import {
   ControlValueAccessor,
   FormControl,
@@ -18,7 +18,7 @@ import {
   ],
 })
 export class CounterControlComponent implements OnInit, ControlValueAccessor {
-  result: number = 1;
+  @Input() result!: number;
   private onChange(value: number): void {}
   counterControl = new FormControl();
   constructor() {}
@@ -31,7 +31,7 @@ export class CounterControlComponent implements OnInit, ControlValueAccessor {
   }
 
   decrement(): void {
-    if (this.result > 1) {
+    if (this.result > 0) {
       this.result--;
       this.onChange(this.result);
     }

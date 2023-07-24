@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ICartItem } from '../interfaces/cart-item';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -14,20 +14,47 @@ export class CartService {
   constructor() {}
 
   addToCart(cartItem: ICartItem): string {
-    this.cartItems.push(cartItem);
+    let isInCart = !!this.cartItems.find(
+      (item) => item.mealId === cartItem.mealId
+    );
+    if (!isInCart) {
+      this.cartItems.push(cartItem);
+      this.sub$.next(this.cartItems);
+      return 'Блюдо добавлено в корзину';
+    } else {
+      return 'Уже в корзине';
+    }
+  }
+
+  changeCount(mealId: string, count: number, mealPrice: number): void {
+    const index: number = this.cartItems.findIndex(
+      (item) => item.mealId === mealId
+    );
+    this.cartItems[index].count = count;
+    this.cartItems[index].mealPrice = count * mealPrice;
     this.sub$.next(this.cartItems);
-    return 'Блюдо добавлено в корзину';
   }
 
   getCartItems(): ICartItem[] {
-    // return from(this.cartItems);
     return this.cartItems;
   }
 
   deleteCartItem(cartItemId: string) {
-    this.cartItems = this.cartItems.filter((item) => item.id !== cartItemId);
+    this.cartItems = this.cartItems.filter(
+      (item) => item.mealId !== cartItemId
+    );
     this.sub$.next(this.cartItems);
     console.log(this.cartItems);
+  }
+
+  private deleteAllCartItems(): void {
+    this.cartItems = [];
+    this.sub$.next(this.cartItems);
+  }
+
+  createOrder(): void {
+    this.deleteAllCartItems();
+    console.log('Заказ успешно оформлен');
   }
 
   CheckInCart(cartItemId: string): BehaviorSubject<boolean> {

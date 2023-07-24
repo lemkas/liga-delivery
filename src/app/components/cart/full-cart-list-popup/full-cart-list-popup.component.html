@@ -1,6 +1,7 @@
-<cart-list-item
-  *ngFor="let cartItem of cartItems"
-  [cartItem]="cartItem"
-  (deleteRecord)="deleteCartItem($event)"
-></cart-list-item>
-<div>хуй</div>
+<div class="cheque">
+  <div class="title">Подтверждение оплаты</div>
+  <div class="buttons">
+    <a class="button" (click)="confirm()">Confirm</a>
+    <a class="button cancel" (click)="cancel()">Cancel</a>
+  </div>
+</div>

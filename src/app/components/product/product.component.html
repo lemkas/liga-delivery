@@ -20,12 +20,20 @@
       [size]="meal[0].size"
       formControlName="sizeControl"
     ></size-radio-control>
-    <counter-control formControlName="counterControl"></counter-control>
+    <counter-control
+      formControlName="counterControl"
+      *ngIf="isInCart"
+      [result]="count"
+    ></counter-control>
     <div class="footer">
       <button *ngIf="!isInCart" type="submit" class="cart-button">
         ADD TO CART
       </button>
-      <a *ngIf="isInCart" class="cart-button" (click)="removeFromCart()">
+      <a
+        *ngIf="isInCart"
+        class="cart-button"
+        (click)="removeFromCart(cartItemId)"
+      >
         REMOVE FROM TO CART
       </a>
     </div>

@@ -10,14 +10,14 @@
     </div>
     <div class="center">
       <p class="title">{{ cartItem.title }}</p>
-      <div class="counter">de</div>
+      <div class="counter">{{ cartItem.count }} шт.</div>
     </div>
     <div class="right">
       <div class="delete-button">
         <img
           src="../../../../assets/img/button-icons/delete.svg"
           alt=""
-          (click)="deleteCartItem(cartItem.id)"
+          (click)="deleteCartItem(cartItem.mealId)"
         />
       </div>
       <div class="sum">

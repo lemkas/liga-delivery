@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ICartItem } from 'src/app/interfaces/cart-item';
 import { CartService } from 'src/app/services/cart.service';
 import { Subscription } from 'rxjs';
+import { FullCartListPopupComponent } from '../full-cart-list-popup/full-cart-list-popup.component';
 
 @Component({
   selector: 'cart-list',
@@ -9,13 +11,14 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./cart-list.component.scss'],
 })
 export class CartListComponent implements OnInit {
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private dialog: MatDialog) {}
   cartItems: ICartItem[] = [];
   total: number = 0;
   totalItem: number = 0;
   tax: number = this.cartService.tax;
   deliveryCharge: number = this.cartService.deliveryCharge;
   private sub$!: Subscription;
+
   ngOnInit(): void {
     this.getCartItems();
   }
@@ -29,6 +32,13 @@ export class CartListComponent implements OnInit {
 
   deleteCartItem(id: string): void {
     this.cartService.deleteCartItem(id);
+  }
+
+  openPopup(): void {
+    this.dialog.open(FullCartListPopupComponent, {
+      height: '20%',
+      width: '370px',
+    });
   }
 
   private getTotalItem(items: ICartItem[]): void {
